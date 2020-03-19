@@ -1,0 +1,6 @@
+<div class="jumbotron">
+	<h3> welcome to JobZ </h3>
+	<% if not user_signed_in? %>
+		<%= link_to 'Start Now', new_user_registration_path, class: 'btn btn-lg btn-success' %>
+	<% end %>
+</div>

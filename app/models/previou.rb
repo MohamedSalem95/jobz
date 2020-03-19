@@ -1,0 +1,2 @@
+class Previou < ApplicationRecord
+end
