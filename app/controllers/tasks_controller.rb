@@ -14,7 +14,8 @@ class TasksController < ApplicationController
 		@task = Task.new(task_params)
 		@task.user = current_user
 		if @task.save
-			redirect_to home_path
+			flash[:notice] = 'Prevoius work created successfully'
+			redirect_to task_path(@task)
 		else
 			render :new
 		end
