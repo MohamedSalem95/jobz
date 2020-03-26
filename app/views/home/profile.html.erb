@@ -10,7 +10,9 @@
 
 
 	<div class="col col-9">
-		<%= link_to 'Create previous work', new_task_path, class: 'btn btn-outline-success' %>
+		<%= link_to 'Create Previous Work', new_task_path, class: 'btn btn-outline-success mr-1' %>
+		<%= link_to 'Create New Post', new_post_path, class: 'btn btn-outline-success mr-1' %>
+		<%= link_to 'View Posts', posts_path, class: 'btn btn-outline-success mr-1' %>
 		<p></p>
 		<%= render 'tasks/list', user: current_user %>
 </div>

@@ -1,0 +1,22 @@
+<p class="lead">
+	<%= @post.body %>
+</p>
+
+<p class="text-muted"> 
+	<%= image_tag @post.user.image.thumb.url, width: 30, class: 'rounded-circle' %>
+	&nbsp;
+
+	<small class="text-muted font-weight-bold"> <%= link_to @post.user.name, profile_path(@post.user) %>, 
+
+	<%= time_ago_in_words(@post.created_at) %> ago
+
+</small></p>
+
+<hr>
+
+<p class="font-weight-bold text-muted"> drop a comment </p>
+<%= render 'comments/comment_form', {post: @post, comment: Comment.new} %>
+<hr>
+
+<%= render 'comments/comment_list', comments: @post.comments.latest, count: @post.comments.count %>
+

@@ -14,3 +14,7 @@
  *= require_tree .
  *= require_self
  */
+
+ body, html {
+    font-family: 'Lato', sans-serif;
+ }

@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   
-  resources :tasks
+  
+  
+  resources :posts do
+  	resources :comments
+  end
+  
+  resources :tasks do
+  	resources :images
+  end
   devise_for :users
   
   root to: 'home#index', as: 'home'

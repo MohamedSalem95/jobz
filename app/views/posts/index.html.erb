@@ -1,0 +1,51 @@
+<div class="row">
+	<div class="col col-3">
+		<% if !current_user.image.profile.url.nil? %>
+			<%= image_tag current_user.image.profile.url, class: 'img-thumbnail' %>
+		<% end %>
+		<br>
+		<br>
+		<h5> <%= current_user.name.capitalize %></h5>
+	</div>
+
+
+	<div class="col col-9">
+		<% if not @posts.empty? %>
+
+		<p>
+			<b>
+				<%= pluralize(@posts.count, 'post') %> so far
+			</b>
+		</p>
+		<hr>
+		<% @posts.each do |post| %>
+			<p class="lead">
+				<%= post.body %>
+			</p>
+			<p class="text-muted"> 
+	<%= image_tag post.user.image.thumb.url, width: 30, class: 'rounded-circle' %>
+	&nbsp;
+	<small class="text-muted font-weight-bold"> <%= link_to post.user.name, profile_path(post.user) %>, 
+		<%= time_ago_in_words(post.created_at) %> ago
+		<%= link_to 'view', post_path(post), class: 'ml-2 btn btn-outline-success btn-sm' %>
+	 </small></p>
+
+	 <hr>
+		<% end %>
+
+
+
+
+		<% else %>
+
+			<p>
+				<b>
+					No posts here yet!! 
+					<%= link_to 'create new one now', new_post_path %>
+				</b>
+			</p>
+
+		<% end %>	
+	</div>
+
+</div>

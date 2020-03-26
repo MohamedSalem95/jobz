@@ -1,0 +1,11 @@
+<%= form_with model: @post, local: true do |form| %>
+
+	<h5> Create a new post </h5>
+	<div class="form-group">
+		<%= form.label :body, 'post body*' %>
+		<%= form.text_area :body, class: 'form-control', cols: 10 %>
+	</div>
+
+	<%= form.submit 'Save post', class: 'btn btn-success' %>
+
+<% end %>

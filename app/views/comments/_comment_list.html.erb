@@ -1,0 +1,28 @@
+<small class="text-muted">
+	<%= pluralize(comments.count, 'comment') %>  so far.
+</small>
+
+<% if not comments.empty? %>
+
+	<% comments.each do |comment| %>
+		<p>
+			<%= comment.body %>
+			<p class="text-muted"> 
+			<%= image_tag comment.user.image.thumb.url, width: 20, class: 'rounded-circle' %>
+			&nbsp;
+
+			<small class="text-muted font-weight-bold"> <%= link_to comment.user.name, profile_path(comment.user) %>, 
+
+			<%= time_ago_in_words(comment.created_at) %> ago
+
+		</small></p>
+		</p>
+		<hr>
+	<% end %>
+
+<% else %>
+	<p>
+		<b> No commenst yet </b>
+	</p>
+	
+<% end %>

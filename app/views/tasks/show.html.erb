@@ -1,14 +1,18 @@
-<h4 class="text-info"> <%= @task.title.capitalize %> </h4>
+<h5 class="text-success"> <%= @task.title.capitalize %> </h5>
 <p class="text-muted"> 
-	<%= image_tag current_user.image.thumb.url, width: 30, class: 'rounded-circle' %>
+	<%= image_tag @task.user.image.thumb.url, width: 30, class: 'rounded-circle' %>
 	&nbsp;
-	<small class="text-muted font-weight-bold"> <%= link_to current_user.name, profile_path(current_user) %>, 
+	<small class="text-muted font-weight-bold"> <%= link_to @task.user.name, profile_path(@task.user) %>, 
 		<%= time_ago_in_words(@task.created_at) %> ago
 	 </small>
 	 <hr>
 	 <p class="lead">
 	 	<%= @task.description %>
 	 </p>
+	 <hr>
+	 <%= render 'images/image_list', task: @task %>
+	 <hr>
+	 <%= link_to 'Add Image', new_task_image_path(@task), class: 'btn btn-outline-success' %>
 
 
 </p>

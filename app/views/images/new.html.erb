@@ -1,0 +1,9 @@
+<h5> Add new image to </h5>
+
+<hr>
+
+<%= link_to @task.title, task_path(@task) %>
+
+<hr>
+
+<%= render 'images/image_form', {task: @task, image: Image.new} %>
