@@ -2,6 +2,9 @@
 	<div class="col col-3">
 		<% if !current_user.image.profile.url.nil? %>
 			<%= image_tag current_user.image.profile.url, class: 'img-thumbnail' %>
+
+		<% else %>
+			<%= image_tag 'user_avatar.jpg', width: 150, class: 'rounded-circle' %>
 		<% end %>
 		<br>
 		<br>
@@ -23,7 +26,11 @@
 				<%= post.body %>
 			</p>
 			<p class="text-muted"> 
+				<% if not post.user.image.thumb.url.nil? %>
 	<%= image_tag post.user.image.thumb.url, width: 30, class: 'rounded-circle' %>
+	<% else %>
+		<%= image_tag 'user_avatar.jpg', width: 30, class: 'rounded-circle' %>
+	<% end %>
 	&nbsp;
 	<small class="text-muted font-weight-bold"> <%= link_to post.user.name, profile_path(post.user) %>, 
 		<%= time_ago_in_words(post.created_at) %> ago

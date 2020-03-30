@@ -20,7 +20,10 @@
         <div class="dropdown">
   <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <% if !current_user.image.profile.url.nil? %>
-      <%= image_tag current_user.image.thumb.url, width: 27, class: "rounded-circle" %>
+      <%= image_tag current_user.image.profile.url, width: 27, class: 'img-thumbnail' %>
+
+    <% else %>
+      <%= image_tag 'user_avatar.jpg', width: 27, class: 'rounded-circle' %>
     <% end %>
 
     <%= current_user.name.capitalize %>

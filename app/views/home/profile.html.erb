@@ -2,6 +2,9 @@
 	<div class="col col-3">
 		<% if !@user.image.profile.url.nil? %>
 			<%= image_tag @user.image.profile.url, class: 'img-thumbnail' %>
+
+		<% else %>
+			<%= image_tag 'user_avatar.jpg', width: 150, class: 'rounded-circle' %>
 		<% end %>
 		<br>
 		<br>
