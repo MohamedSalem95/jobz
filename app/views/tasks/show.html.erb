@@ -1,6 +1,10 @@
 <h5 class="text-success"> <%= @task.title.capitalize %> </h5>
 <p class="text-muted"> 
+	<% if not @task.user.image.thumb.url.nil? %>
 	<%= image_tag @task.user.image.thumb.url, width: 30, class: 'rounded-circle' %>
+	<% else %>
+		<%= image_tag 'user_avatar.jpg', width: 30, class: 'rounded-circle' %>
+	<% end %>
 	&nbsp;
 	<small class="text-muted font-weight-bold"> <%= link_to @task.user.name, profile_path(@task.user) %>, 
 		<%= time_ago_in_words(@task.created_at) %> ago

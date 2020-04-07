@@ -3,7 +3,11 @@
 </p>
 
 <p class="text-muted"> 
+	<% if not @post.user.image.thumb.url.nil? %>
 	<%= image_tag @post.user.image.thumb.url, width: 30, class: 'rounded-circle' %>
+	<% else %>
+		<%= image_tag 'user_avatar.jpg', width: 30, class: 'rounded-circle' %>
+	<% end %>
 	&nbsp;
 
 	<small class="text-muted font-weight-bold"> <%= link_to @post.user.name, profile_path(@post.user) %>, 
